@@ -128,71 +128,51 @@ button:hover, .btn:hover {
 
 /* ------------------------------------------slider --------------------------------------------- */
 
-.slider-wrapper {
-  position: relative;
-  overflow: hidden;
-  width: 100%;
-  max-width: 1200px; /* optional, set your own limit */
-  height: 600px; /* set height for the slider */
-  margin: auto;
+.slider-wrapper{
+    position: relative;
+    width: 100%;
+    height: 450px;
 }
 
-.slides-container {
-  display: flex;
-  overflow-x: scroll;
-  scroll-behavior: smooth;
-  padding: 0;
-  margin: 0;
-  list-style: none;
-  scroll-snap-type: x mandatory;
+.slide{
+    position: absolute;
+    inset: 0;/*to make the size crease or decrase proporcianal */
+    opacity: 0;
+    transition: opacity 500ms linear;
 }
 
-.slide {
-  flex: 0 0 100%;
-  scroll-snap-align: start;
-  position: relative;
+.slide--visible{
+    opacity: 1;
+    transition: opacity 500ms linear;
 }
 
-.slide img {
-  width: 100%;
-  height: auto;
-  display: block;
+.slide img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
-.slide-title {
-  position: absolute;
-  bottom: 20px;
-  left: 30px;
-  font-size: 2rem;
-  color: white;
-  text-shadow: 0 0 5px black;
+.slide-arrow{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0,0,0,0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 10;
 }
 
-/* Arrow buttons */
-.slide-arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 10;
-  background-color: rgba(0,0,0,0.5);
-  color: white;
-  border: none;
-  font-size: 2rem;
-  cursor: pointer;
-  padding: 10px;
+#slide-arrow-prev{
+    left: 10px;
 }
 
-#slide-arrow-prev {
-  left: 10px;
+#slide-arrow-next{
+    right: 10px;
 }
-
-#slide-arrow-next {
-  right: 10px;
-}
-
 
 /* -----------------------------------Footer widgets-------------------------------------- */
-
 footer.site-footer {
   display: flex;
   justify-content: center;

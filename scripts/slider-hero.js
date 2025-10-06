@@ -2,55 +2,68 @@ document.addEventListener("DOMContentLoaded", () => {
   initializeSlider();
 });
 
-function initializeSlider() {                       
 
-const slidesContainer = document.getElementById("slides-container");
-console.log(slidesContainer);
+function initializeSlider(){
 
-const slides = document.querySelectorAll(".slide");
-const prevButton = document.getElementById("slide-arrow-prev");
-const nextButton = document.getElementById("slide-arrow-next");
-
-let currentIndex = 0;
-const totalSlides = slides.length;
-
-// Helper function to scroll to a specific slide
-function goToSlide(index) {
-  const slideWidth = slides[0].clientWidth;
-
-  if (index === 0 && currentIndex === totalSlides - 1) {
-    // Temporarily disable smooth scroll to avoid reverse animation
-    slidesContainer.style.scrollBehavior = 'auto';
-    slidesContainer.scrollLeft = 0;
-   /* ----------------Re-enable smooth scroll after a short delay ---------*/
-    setTimeout(() => {
-      slidesContainer.style.scrollBehavior = 'smooth';
-    }, 50);
-  } else {
-    slidesContainer.scrollLeft = slideWidth * index;
+  let carousel = document.querySelector(".slides-container")
+  let slides = carousel.querySelectorAll(".slide")
+  let slideIndex = 0  // this is our current img or slide we show in the browser 
+  let nextButton = document.getElementById("slide-arrow-next")
+  let prevButton = document.getElementById("slide-arrow-prev")
+  console.log(nextButton, prevButton);
+  
+  let changer // this has to be here, because then we can use it in all our code!!!
+  
+  //4
+  function changeAutomatic (){
+      changer = setInterval(nextSlide, 5000);
   }
+  carousel.addEventListener("mouseenter", function(){
+      clearInterval(changer) // add a propety or funtion
+  })
+  carousel.addEventListener("mouseleave", changeAutomatic)
+    
+  
+  /* ---------------------------------------- */
+  //3
+      console.log(slides.length);
+  
+          function nextSlide (){
+              slideIndex++
+  
+              if(slideIndex == slides.length){    // if we go to the 5th slide, insted of a having a blank page for the next element, we want to be back to the beginning
+                  slideIndex = 0                 // then the current slide has to be the first one witch has a index of 0
+              }
+              showSlide(slideIndex)
+          }
 
-  currentIndex = index;
-}
-
-
-// Next / Prev buttons
-nextButton.addEventListener("click", () => {
-  let nextIndex = currentIndex + 1;
-  if (nextIndex >= totalSlides) nextIndex = 0;
-  goToSlide(nextIndex);
-});
-
-prevButton.addEventListener("click", () => {
-  let prevIndex = currentIndex - 1;
-  if (prevIndex < 0) prevIndex = totalSlides - 1;
-  goToSlide(prevIndex);
-});
-
-// Automatic sliding every 5 seconds
-setInterval(() => {
-  let nextIndex = currentIndex + 1;
-  if (nextIndex >= totalSlides) nextIndex = 0;
-  goToSlide(nextIndex);
-}, 5000); // 5000ms = 5 seconds
+  nextButton.addEventListener("click", nextSlide)
+      /* ----------------------------------------- */
+   //2
+          function previusSlide (){
+              slideIndex--
+              // the Dobble == its a compatation, a single = its an asigment of a value!!!!
+              if(slideIndex == -1){                // if the current slide es the last one = -1
+                  slideIndex = slides.length -1;  // then the number of slides to go has to be 4 sa, if slides.length = 5, we say slides.length -1 == 5
+              }
+              showSlide(slideIndex)
+          }
+          
+  prevButton.addEventListener("click", previusSlide)
+      /* ------------------------------------------- */
+  //1
+  
+          // en the first part of the funtion, we hide all elemnts. In the second part we show just one
+          function showSlide (index){
+            
+              slides.forEach(function(slide, i){ // here we make to paralale node list that responde to each other // first is the element == slide ,  i == the place to take
+                  slide.classList.remove("slide--visible")
+            
+              })
+              slides[index].classList.add("slide--visible")
+            
+          }
+  
+          showSlide (slideIndex)
+          changeAutomatic ()
 }
