@@ -1,0 +1,201 @@
+/*
+Theme Name: Denisse's Theme
+Theme URI: https://example.com/my_theme
+Author: DenisseDaugaard
+Author URI: https://example.com
+Description: My theme is the best theme ever!!
+Version: 1.0
+License: GNU General Public License v2.0 or later
+Text Domain: denisses-theme
+*/
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+image, svg, video, object, iframe {
+    max-width: 100%;
+}
+
+:root {
+    /* Primary Colors */
+    --color-primary: #e04cd7;       /* main pink/purple accent */
+    --color-primary-light: #eedbe4; /* light pink background gradient */
+    --color-primary-dark: #c13bbf;  /* darker pink for hover/buttons */
+
+    /* Secondary / Neutral Colors */
+    --color-text: #222222;          /* main text */
+    --color-text-light: #555555;    /* secondary text */
+    --color-bg: #ffffff;            /* main background */
+    --color-bg-alt: #f8f8f8;        /* alternate background */
+    --color-border: #e0e0e0;        /* subtle border */
+
+    /* Buttons / Highlights */
+    --color-button-bg: #ff5a6e;     /* call-to-action button */
+    --color-button-text: #ffffff;   /* button text */
+    --color-button-hover: #ff3b50; /* button hover */
+
+    /* Typography */
+    --font-primary: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --font-heading: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+    /* Spacing / Layout */
+    --spacing-xs: 4px;
+    --spacing-sm: 8px;
+    --spacing-md: 16px;
+    --spacing-lg: 32px;
+    --spacing-xl: 64px;
+    
+    /* Shadows */
+    --shadow-light: 0 2px 6px rgba(0,0,0,0.1);
+    --shadow-medium: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* ------------------------------------------dark mode------------------------------------------- */
+html {
+    color-scheme: light dark;
+}
+
+[data-dark= "true"]{
+    color-scheme: dark;  
+}
+
+[data-dark= "false"] {
+    color-scheme: light;
+}
+  
+
+html,
+input,
+button,
+textarea{
+    color: light-dark(var(--color-text), var(--color-bg));
+    background-color: light-dark(var(--color-bg), var(--color-text));
+}
+
+/* -----------------------------------------base styles------------------------------------------- */
+a {
+    color: var(--color-primary);
+}
+
+a:hover {
+    color: var(--color-primary-dark);
+}
+
+button, .btn {
+    background-color: var(--color-button-bg);
+    color: var(--color-button-text);
+    padding: var(--spacing-sm) var(--spacing-md);
+    border: none;
+    border-radius: 6px;
+    box-shadow: var(--shadow-light);
+}
+
+button:hover, .btn:hover {
+    background-color: var(--color-button-hover);
+}
+
+
+.site-header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+/* -----------------------------------------header--------------------------------------------------- */
+.site-navigation{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.site-branding{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 5px;
+}
+
+.custom-logo{
+    width: 100px;
+    height: auto;
+}
+
+
+/* ------------------------------------------slider --------------------------------------------- */
+
+.slider-wrapper {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  max-width: 1200px; /* optional, set your own limit */
+  height: 600px; /* set height for the slider */
+  margin: auto;
+}
+
+.slides-container {
+  display: flex;
+  overflow-x: scroll;
+  scroll-behavior: smooth;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  scroll-snap-type: x mandatory;
+}
+
+.slide {
+  flex: 0 0 100%;
+  scroll-snap-align: start;
+  position: relative;
+}
+
+.slide img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.slide-title {
+  position: absolute;
+  bottom: 20px;
+  left: 30px;
+  font-size: 2rem;
+  color: white;
+  text-shadow: 0 0 5px black;
+}
+
+/* Arrow buttons */
+.slide-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  background-color: rgba(0,0,0,0.5);
+  color: white;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 10px;
+}
+
+#slide-arrow-prev {
+  left: 10px;
+}
+
+#slide-arrow-next {
+  right: 10px;
+}
+
+
+/* -----------------------------------Footer widgets-------------------------------------- */
+
+footer.site-footer {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  height: 200px;
+}
