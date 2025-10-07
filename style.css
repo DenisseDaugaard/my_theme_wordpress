@@ -173,9 +173,14 @@ button:hover, .btn:hover {
 }
 
 /* -----------------------------------Footer widgets-------------------------------------- */
-footer.site-footer {
+footer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+section.footer-widgets-section {
   display: flex;
   justify-content: center;
-  text-align: center;
-  height: 200px;
+  gap: 24px;
 }
