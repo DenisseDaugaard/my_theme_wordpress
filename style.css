@@ -23,7 +23,7 @@ image, svg, video, object, iframe {
 :root {
     /* Primary Colors */
     --color-primary: #e04cd7;       /* main pink/purple accent */
-    --color-primary-light: #eedbe4; /* light pink background gradient */
+    --color-primary-light: beige; /* light pink background gradient */
     --color-primary-dark: #c13bbf;  /* darker pink for hover/buttons */
 
     /* Secondary / Neutral Colors */
@@ -73,12 +73,37 @@ input,
 button,
 textarea{
     color: light-dark(var(--color-text), var(--color-bg));
-    background-color: light-dark(var(--color-bg), var(--color-text));
+    background-color: light-dark(var(--color-bg), var(--color-text-light));
+}
+
+html[data-dark="true"] a{
+    color: var(--color-bg);
+}
+
+html[data-dark="false"] footer{
+background: linear-gradient(0deg, rgba(199, 181, 145, 1)  0%, rgba(245, 216, 156, 1) 80%);}
+
+
+html[data-dark="true"] footer{
+   background: #6179ba;
+background: linear-gradient(0deg, rgba(97, 121, 186, 0.93) 0%, rgba(44, 59, 105, 1) 100%);
 }
 
 /* -----------------------------------------base styles------------------------------------------- */
+
 a {
-    color: var(--color-primary);
+    color: var(--color-primary-dark);
+    text-decoration: none;
+}
+
+a.wp-block-pages-list__item__link,
+#menu-primary-menu a,
+.footer-social-links a{
+      color: var(--color-text-light); 
+}
+
+li{
+    list-style: none;
 }
 
 a:hover {
@@ -99,10 +124,13 @@ button:hover, .btn:hover {
 }
 
 
+
 .site-header {
     display: flex;
     justify-content: space-around;
     align-items: center;
+    padding-block: 24px;
+    height: 100px;
 }
 
 /* -----------------------------------------header--------------------------------------------------- */
@@ -111,6 +139,14 @@ button:hover, .btn:hover {
     gap: 20px;
     align-items: center;
 }
+
+#menu-primary-menu{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    list-style: none;
+}
+
 
 .site-branding{
     display: flex;
@@ -121,17 +157,47 @@ button:hover, .btn:hover {
 }
 
 .custom-logo{
-    width: 100px;
+    width: 80px;
     height: auto;
+}
+/* ----Search Bar----------  */
+.searchbar-container {
+  position: relative;
+  display: inline-block; /* or flex, depending on layout */
+}
+
+.search-input{
+  padding: 0.5rem 0.75rem;
+  border-radius: 1rem;
+  border: solid 1px var(--color-border);
 }
 
 
-/* ------------------------------------------slider --------------------------------------------- */
+.search-btn {
+  position: absolute;
+  right: 1px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-radius: 1rem;
+  font-size: 0.85rem;
+}
+
+/*  Dark Mode button styles */
+
+#dark-mode-toggle{
+    background-color: transparent;
+    border: 1px solid var(--color-border);
+    box-shadow: none;
+}
+
+
+/* ------------------------------------------slider HERO --------------------------------------------- */
 
 .slider-wrapper{
     position: relative;
     width: 100%;
     height: 450px;
+
 }
 
 .slide{
@@ -139,11 +205,24 @@ button:hover, .btn:hover {
     inset: 0;/*to make the size crease or decrase proporcianal */
     opacity: 0;
     transition: opacity 500ms linear;
+      height: 450px;
 }
 
 .slide--visible{
     opacity: 1;
     transition: opacity 500ms linear;
+    position: relative;
+}
+
+.slide-title{
+position: absolute;
+ font-size: 5rem;
+ color: white;
+ text-shadow: rgba(21, 21, 22, 0.2) 0px 8px 24px;
+  top: 50%;
+  left: 50%;
+  transform: translateX(50%);
+  transform: translateY(-50%);
 }
 
 .slide img{
@@ -179,8 +258,78 @@ footer{
     align-items: center;
 }
 
-section.footer-widgets-section {
-  display: flex;
-  justify-content: center;
-  gap: 24px;
+#widgets-container{
+ display: grid;
+ grid-template-columns: 1fr 2fr 1fr;
+ padding: 1rem 2rem;
+}
+
+.footer-widgets-container{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.footer-newsletter{
+   margin-inline: auto;
+}
+
+.footer-widget-title{
+    margin-bottom: 1rem;
+}
+
+.footer-widget{
+    height: 100%;
+}
+
+
+.footer-widget-area{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-widget-img{
+    max-height: 200px;
+}
+
+.wp-block-page-list{
+    flex: 1;           /* fills remaining space */
+   display: flex;   
+   flex-direction: column;
+   margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.wp-block-page-list li{
+    flex: 1;    /* each li gets equal share of height */
+}
+
+.footer-social{
+    display: flex;
+    flex-direction: column;
+   justify-content: end;
+    gap: 0.5rem;
+}
+
+
+.footer-social-links a{
+    font-size: 1.5rem;
+}
+
+.rights-section{
+    width: 100%;
+  border-top:1px solid var(--color-text-light);
+  width: 90%;
+}
+
+.rights-section{
+    text-align: center;
+    padding: 0.5rem;
+}
+
+input{
+    border: solid 1px var(--color-bg-alt);
+    padding: 0.45rem;
+    border-radius: 0.25rem;
 }

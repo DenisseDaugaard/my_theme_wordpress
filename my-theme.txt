@@ -1,13 +1,16 @@
 Here i just have some notes :)
 
 todas tirsday 07
--create the footer 
--some widgets 
--add some mediaqueries for the header, maybe a sidebar, or burger menu
--login ???
+
 
 
 
 wednsday 08
+-hero
+-add css to post, pages and search bar...
+-add some mediaqueries for the header, maybe a sidebar, or burger menu
+
+thursday 09
+-mediaqueries ???
 -add css to all the post and pages 
 -decide the colors for the theme 

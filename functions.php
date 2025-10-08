@@ -4,7 +4,8 @@ function my_theme_css() {
     "denisses-theme-style",
     get_template_directory_uri() . '/style.css',
     array(),
-    wp_get_theme()->get('Version')
+    wp_get_theme()->get('Version'),
+    'all'
 );
     // Font Awesome
     wp_enqueue_style(
@@ -35,7 +36,7 @@ function my_theme_scripts() {
     
     wp_enqueue_script( 'slider-hero-script', get_template_directory_uri() . '/scripts/slider-hero.js', array(),
        null,
-       true //change to false if not working
+       true //chab
     );
 }
 add_action( 'wp_enqueue_scripts', 'my_theme_scripts' );
@@ -78,7 +79,7 @@ function slider() {
             $the_query->the_post();
             $image_url = get_the_post_thumbnail_url(get_the_ID(), 'hero'); // 'hero' is a custom image size
             echo "<li class='slide'>";
-            echo "<span class='slide-title'>" . get_the_title() . "</span>";
+            echo "<h1 class='slide-title'>" . get_the_title() . "</h1>";
             echo "<img src='{$image_url}' alt='".get_the_title()."' class='slide-image' />";
             echo "<script>console.log('hero img src: ' + " . json_encode($image_url) . ");</script>";
             echo "</li>";
@@ -104,8 +105,8 @@ function footer_widgets(){
         register_sidebar( array(
             'name'          => 'Footer Widget Area ' . $i,
             'id'            => 'footer-' . $i,
-            'before_widget' => '<div class="footer-widget">',
-            'after_widget'  => '</div>',
+            'before_widget' => '<section class="footer-widget">',
+            'after_widget'  => '</section>',
             'before_title'  => '<h3 class="footer-widget-title">',
             'after_title'   => '</h3>',
         ) );
@@ -161,7 +162,7 @@ function mytheme_footer_customizer( $wp_customize ) {
     ) );
 
     // --- Optional: Add URL fields for each social network ---
-    $socials = array( 'facebook', 'twitter', 'instagram', 'linkedin' );
+    $socials = array( 'facebook', 'twitter', 'instagram', 'linkedin', 'youtube' );
     foreach ( $socials as $social ) {
         $wp_customize->add_setting( "footer_{$social}_url", array(
             'default'           => '',

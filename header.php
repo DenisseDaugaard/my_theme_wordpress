@@ -11,11 +11,11 @@
 <header class="site-header">
     <div class="site-searchbar">
         <form role="search" method="get" id="searchform" class="searchform" action="http://localhost/my_theme/">
-				<div>
-					<label class="screen-reader-text" for="s">Search for:</label>
-					<input type="text" value="" name="s" id="s">
+				<div class="searchbar-container">
+					<!-- <label class="screen-reader-text" for="search-input">Search for:</label> -->
+					<input class="search-input" type="text" value="" name="s" id="search-input" placeholder="Search...">
 					<!-- <input type="submit" id="searchsubmit" value="Search"> -->
-                     <button type="submit" id="searchsubmit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                     <button class="search-btn" type="submit" id="searchsubmit"><i class="fa-solid fa-magnifying-glass"></i></button>
 				</div>
 		</form>
     </div>
@@ -31,6 +31,8 @@
 
     <nav class="site-navigation">
         <?php wp_nav_menu(); ?>
-       <button id="dark-mode-toggle">T</button>
-
+        <button class="dark-mode-btn" id="dark-mode-toggle"></button>
+    </nav>
+    
 </header>
+
