@@ -1,0 +1,77 @@
+.site-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-block: 24px;
+    height: 100px;
+    border-bottom: 1px solid var(--color-border);
+    padding-inline: 5%;
+}
+
+.site-navigation{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+#menu-primary-menu{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    list-style: none;
+}
+
+
+.site-branding{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    max-height: 100px;
+}
+
+.custom-logo{
+    width: 50px;
+    height: auto;
+}
+
+.site-title{
+    font-size: 1rem;
+    font-family: 'Montserrat';
+    padding: 0 !important;
+}
+/* ----------------------------------------------Search Bar--------------------------------------------  */
+
+
+.searchbar-container {
+  position: relative;
+  display: inline-block; /* or flex, depending on layout */
+}
+
+.search-input{
+  padding: 0.5rem 0.75rem;
+  border-radius: 1rem;
+  border: solid 1px var(--color-border);
+}
+
+
+.search-btn {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  border-radius: 1rem;
+  font-size: 0.85rem;
+}
+
+/*  Dark Mode button styles */
+
+#dark-mode-toggle{
+    background-color: transparent;
+    border: 1px solid var(--color-border);
+    box-shadow: none;
+
+}
+#dark-mode-toggle:hover{
+   transform: scale(1.1);
+}

@@ -21,7 +21,7 @@ function darkMode() {
 
     function setDarkMode(isDark, save = true) {
         rootElm.setAttribute("data-dark", isDark);
-        darkModeBtn.innerHTML = isDark ? "<i class=\"fa-solid fa-sun\" style=\"color: #FFD43B;\"></i>" : "<i class=\"fa-solid fa-moon\" style=\"color: #B197FC;\"></i>";
+        darkModeBtn.innerHTML = isDark ? "<i class=\"fa-solid fa-sun\" style=\"color: #ff5a6e;\"></i>" : "<i class=\"fa-solid fa-moon\" style=\"color: #B197FC;\"></i>";
 
         if (save) {
             localStorage.setItem("isDarkMode", JSON.stringify(isDark));

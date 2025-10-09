@@ -1,9 +1,16 @@
 <?php get_header(); ?>
 
-<main>
+<main class="wrap">
    <?php
    slider();
    ?>
+
+   <section class="page">
+   <?php
+   the_content()
+   ?>
+
+   </section>
 </main>
 
 <?php get_footer(); ?>

@@ -1,0 +1,36 @@
+html {
+    color-scheme: light dark;
+}
+
+[data-dark= "true"]{
+    color-scheme: dark;  
+}
+
+[data-dark= "false"] {
+    color-scheme: light;
+}
+  
+
+html,
+input,
+button,
+textarea{
+    color: light-dark(var(--color-text), var(--color-bg));
+    background-color: light-dark(var(--color-bg), var(--color-bg-dark-mode));
+}
+
+html[data-dark="true"] a {
+    color: var(--color-bg);
+}
+html[data-dark="true"] a:hover {
+    color: var(--color-button-bg);
+}
+
+html[data-dark="false"] footer{
+background: linear-gradient(0deg, rgba(199, 181, 145, 1)  0%, rgba(245, 216, 156, 1) 80%);}
+
+
+html[data-dark="true"] footer{
+   background: #6179ba;
+background: linear-gradient(0deg, rgba(97, 121, 186, 0.93) 0%, rgba(44, 59, 105, 1) 100%);
+}

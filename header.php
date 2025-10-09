@@ -30,7 +30,21 @@
     </div>
 
     <nav class="site-navigation">
-        <?php wp_nav_menu(); ?>
+
+         <div className="relative">
+    <div
+        class="ham-menu"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+    
+    <?php wp_nav_menu(); ?>
+
+    
+    </div>
         <button class="dark-mode-btn" id="dark-mode-toggle"></button>
     </nav>
     

@@ -1,7 +1,5 @@
 Here i just have some notes :)
 
-todas tirsday 07
-
 
 
 
@@ -14,3 +12,91 @@ thursday 09
 -mediaqueries ???
 -add css to all the post and pages 
 -decide the colors for the theme 
+
+
+check darmode css :X
+
+
+
+
+
+current post or page in the loop
+
+<?php the_ID(); ?>                 // The post ID
+<?php the_title(); ?>              // The title
+<?php the_content(); ?>            // The full content
+<?php the_excerpt(); ?>            // The excerpt
+<?php the_author(); ?>             // The author’s display name
+<?php the_date(); ?>               // The date published
+<?php the_time(); ?>               // The time published
+<?php the_modified_date(); ?>      // The last modified date
+<?php the_category(); ?>           // List of categories
+<?php the_tags(); ?>               // List of tags
+
+
+images 
+<?php the_post_thumbnail(); ?>                 // Displays the post’s featured image
+<?php the_post_thumbnail('medium'); ?>         // Specific size (thumbnail, medium, large, full)
+<?php the_post_thumbnail_url(); ?>             // Outputs just the image URL
+
+links 
+
+<?php the_permalink(); ?>                     // The URL of the post/page
+<?php the_title_attribute(); ?>               // Title attribute-safe version
+<?php next_post_link(); ?>                    // Link to next post
+<?php previous_post_link(); ?>                // Link to previous post
+
+navegatoion structure
+
+<?php wp_nav_menu(['theme_location' => 'primary']); ?>  // Outputs a registered nav menu
+<?php get_sidebar(); ?>                                 // Includes sidebar.php
+<?php get_header(); ?>                                  // Includes header.php
+<?php get_footer(); ?>                                  // Includes footer.php
+
+
+SITE AND GLOBAL INFO 
+
+<?php bloginfo('name'); ?>           // Site title
+<?php bloginfo('description'); ?>    // Tagline
+<?php bloginfo('url'); ?>            // Home URL
+<?php bloginfo('template_url'); ?>   // Theme directory URL
+<?php bloginfo('stylesheet_url'); ?> // style.css path
+
+
+
+CUSTON FILDS AND METAA DATA 
+
+<?php the_meta(); ?>                         // All custom fields for current post
+<?php echo get_post_meta(get_the_ID(), 'key_name', true); ?> // Specific custom field
+
+CONDITIONAL TAGS 
+
+<?php if ( is_page() ) { ... } ?>
+<?php if ( is_single() ) { ... } ?>
+<?php if ( is_front_page() ) { ... } ?>
+<?php if ( is_home() ) { ... } ?>
+<?php if ( has_post_thumbnail() ) { ... } ?>
+<?php if ( is_user_logged_in() ) { ... } ?>
+
+
+COMMENTS
+
+<?php comments_template(); ?>          // Includes the comments template
+<?php comments_number(); ?>            // Displays the number of comments
+<?php comment_form(); ?>               // Displays the comment form
+
+
+QUERY AND LOOP HELPERS
+
+<?php have_posts(); ?>                 // Check if posts exist
+<?php the_post(); ?>                   // Sets up post data
+<?php rewind_posts(); ?>               // Rewind the loop
+
+Advanced / Miscellaneous
+
+<?php edit_post_link(); ?>             // "Edit" link (if logged in)
+<?php post_class(); ?>                 // Adds useful CSS classes to a post <div>
+<?php body_class(); ?>                 // Adds useful CSS classes to the <body>
+<?php wp_head(); ?>                    // Required in header.php before </head>
+<?php wp_footer(); ?>                  // Required in footer.php before </body>
+

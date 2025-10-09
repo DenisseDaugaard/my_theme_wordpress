@@ -3,9 +3,9 @@
   <section class="content-area page">
 <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
       <article class="article-full">
-        <header>
+        <header class="page-header">
           <h2><?php the_title(); ?></h2>
-          By: <?php the_author(); ?>
+        <!--  By: <?php the_author(); ?> -->
         </header>
         <?php the_content(); ?>
       </article>

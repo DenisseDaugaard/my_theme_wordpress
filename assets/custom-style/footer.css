@@ -1,0 +1,85 @@
+footer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+} 
+
+#widgets-container{
+ display: grid;
+ grid-template-columns: 1fr 2fr 1fr;
+ padding: 1rem 2rem;
+}
+
+.footer-widgets-container{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.footer-newsletter{
+   margin-inline: auto;
+}
+
+.footer-widget-title{
+    margin-bottom: 1rem;
+}
+
+.footer-widget{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+}
+
+
+.footer-widget-area{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-widget-img{
+    max-height: 200px;
+}
+
+.wp-block-page-list{
+    flex: 1;           /* fills remaining space */
+   display: flex;   
+   flex-direction: column;
+   margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.wp-block-page-list li{
+    flex: 1;    /* each li gets equal share of height */
+}
+
+.footer-social{
+    display: flex;
+    flex-direction: column;
+   justify-content: end;
+    gap: 0.5rem;
+}
+
+
+.footer-social-links a{
+    font-size: 1.5rem;
+}
+
+.rights-section{
+    width: 100%;
+  border-top:1px solid var(--color-text-light);
+  width: 90%;
+}
+
+.rights-section{
+    text-align: center;
+    padding: 0.5rem;
+}
+
+input{
+    border: solid 1px var(--color-bg-alt);
+    padding: 0.45rem;
+    border-radius: 0.25rem;
+}
