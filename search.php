@@ -3,7 +3,7 @@ get_header(); // Loads header.php
 ?>
 
 <main class="wrap" id="site-content">
-    <section class="search-results page">
+    <section class="page">
         <h2>Search Results for: <?php echo get_search_query(); ?></h2>
     
         <?php if (have_posts()) : ?>
