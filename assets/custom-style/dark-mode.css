@@ -26,6 +26,14 @@ html[data-dark="true"] a:hover {
     color: var(--color-button-bg);
 }
 
+/* ---------------------------------page-------------------------------------------------- */
+html[data-dark="false"] .page{
+background:rgb(250, 249, 248);
+}
+html[data-dark="true"] .page{
+background:rgba(6, 20, 63, 0.644);
+}
+
 html[data-dark="false"] footer{
 background: linear-gradient(0deg, rgba(199, 181, 145, 1)  0%, rgba(245, 216, 156, 1) 80%);}
 

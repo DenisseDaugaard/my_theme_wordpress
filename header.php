@@ -10,11 +10,9 @@
 
 <header class="site-header">
     <div class="site-searchbar">
-        <form role="search" method="get" id="searchform" class="searchform" action="http://localhost/my_theme/">
+        <form role="search" method="get" id="searchform" class="searchform" action="<?php echo esc_url(home_url('/'));?>">
 				<div class="searchbar-container">
-					<!-- <label class="screen-reader-text" for="search-input">Search for:</label> -->
 					<input class="search-input" type="text" value="" name="s" id="search-input" placeholder="Search...">
-					<!-- <input type="submit" id="searchsubmit" value="Search"> -->
                      <button class="search-btn" type="submit" id="searchsubmit"><i class="fa-solid fa-magnifying-glass"></i></button>
 				</div>
 		</form>

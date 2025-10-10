@@ -8,8 +8,8 @@
     /* Secondary / Neutral Colors */
     --color-text: #222222;          /* main text */
     --color-text-light: #555555;    /* secondary text */
-    --color-bg: #ffffff;            /* main background */
-    --color-bg-dark-mode: #1d1e42e7;            /* main background */
+    --color-bg: #fdfcfc;            /* main background */
+    --color-bg-dark-mode: #1e1f3de7;            /* main background */
     --color-bg-alt: #f8f8f8;        /* alternate background */
     --color-border: #e0e0e0;        /* subtle border */
     

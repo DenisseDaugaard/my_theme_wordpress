@@ -28,7 +28,7 @@
 position: absolute;
  font-size: var(--font-size-hero);
  color: white;
- text-shadow: rgba(21, 21, 22, 0.2) 0px 8px 24px;
+ text-shadow: rgba(17, 17, 17, 0.2) 0px 8px 24px;
   top: 50%;
   left: 50%;
   transform: translateX(50%);
@@ -83,12 +83,12 @@ position: absolute;
 
 main.wrap {
     display: grid;
-    grid-template-columns: 15rem 1fr 15rem;
+    grid-template-columns: 12rem 1fr 12rem;
 }
 
 section.page{
     grid-column: 2 /span 1;
-    padding-block: 5rem;
+    padding: 5rem 2rem;
 }
 
 .slider-wrapper{
