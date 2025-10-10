@@ -5,7 +5,6 @@
       <article class="article-full">
         <header class="page-header">
           <h2><?php the_title(); ?></h2>
-        <!--  By: <?php the_author(); ?> -->
         </header>
         <?php the_content(); ?>
       </article>

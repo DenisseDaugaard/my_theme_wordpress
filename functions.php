@@ -73,51 +73,60 @@ function my_theme_register_menus() {
 add_action('after_setup_theme', 'my_theme_register_menus');
 
 
-function my_theme_create_defaul_menu(){
-    $defaul_pages = array(
-        'Home'              => 'Welcome to our website.',
-        'About'             => 'This is about page.',
-        'Privacy Policy'    => 'Here you can read about our privacy policy.',
-        'News'              => 'Here you can post news, promotions and more.',
-        'Contact'           => 'Get in touch with us!',
+
+function my_theme_create_default_menu() {
+
+    $default_pages = array(
+        'Home'            => 'Welcome to our website.',
+        'About Us'        => 'This is the about page.',
+        'Privacy Policy'  => 'Here you can read about our privacy policy.',
+        'News'            => 'Here you can post news, promotions, and more.',
+        'Contact'         => 'Get in touch with us! [contact-form-7 id="7" title="Contact form 1"]',
     );
 
     $created_pages = array();
-    foreach($created_pages as $title => $content){
-        $page_check = get_page_by_title($title);
 
-        if(!$isset($page_check->ID)){
-            $new_page_id = wp_insert_post(array(
-                 'post_type'    => 'page',
+    // Create pages if they don't exist
+    foreach ( $default_pages as $title => $content ) {
+
+        $query = new WP_Query( array(
+            'post_type'   => 'page',
+            'title'       => $title,
+            'post_status' => 'any',
+            'fields'      => 'ids',
+        ) );
+
+        if ( ! $query->have_posts() ) {
+            $page_id = wp_insert_post( array(
                 'post_title'   => $title,
                 'post_content' => $content,
                 'post_status'  => 'publish',
-                'post_author'  => 1,
-            ));
-
-         $created_pages[$title] = $new_page_id;
+                'post_type'    => 'page',
+            ) );
+            $created_pages[ $title ] = $page_id;
         } else {
-                $created_pages[$title] = $page_check->ID;
+            $created_pages[ $title ] = $query->posts[0];
         }
-        
+
+        wp_reset_postdata();
     }
 
-    // set the 'Home page 
-    if (isset($created_pages['Home'])) {
-        update_option('show_on_front', 'page');
-        update_option('page_on_front', $created_pages['Home']);
+    // Set Home as front page
+    if ( isset( $created_pages['Home'] ) ) {
+        update_option( 'show_on_front', 'page' );
+        update_option( 'page_on_front', $created_pages['Home'] );
     }
 
-    // Create navigation menu if it doesn’t exist
+    // Create and assign Primary Menu
     $menu_name = 'Primary Menu';
-    $menu_exists = wp_get_nav_menu_object($menu_name);
+    $menu_exists = wp_get_nav_menu_object( $menu_name );
 
-    if (!$menu_exists) {
-        $menu_id = wp_create_nav_menu($menu_name);
+    if ( ! $menu_exists ) {
+        $menu_id = wp_create_nav_menu( $menu_name );
 
         // Add menu items
-        foreach ($created_pages as $page_id) {
-            wp_update_nav_menu_item($menu_id, 0, array(
+        foreach ( $created_pages as $page_id ) {
+            wp_update_nav_menu_item( $menu_id, 0, array(
                 'menu-item-object-id' => $page_id,
                 'menu-item-object'    => 'page',
                 'menu-item-type'      => 'post_type',
@@ -125,14 +134,14 @@ function my_theme_create_defaul_menu(){
             ));
         }
 
-        // Assign menu to theme location
-        $locations = get_theme_mod('nav_menu_locations');
+        // Assign to primary location
+        $locations = get_theme_mod( 'nav_menu_locations' );
         $locations['primary'] = $menu_id;
-        set_theme_mod('nav_menu_locations', $locations);
+        set_theme_mod( 'nav_menu_locations', $locations );
     }
 }
+add_action( 'after_switch_theme', 'my_theme_create_default_menu' );
 
-add_action('after_switch_theme','my_theme_create_defaul_menu');
 
 
 

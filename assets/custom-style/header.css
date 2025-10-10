@@ -21,6 +21,11 @@
     list-style: none;
 }
 
+.menu {
+     display: flex;
+    gap: 20px;
+    align-items: center;
+}
 
 .site-branding{
     display: flex;
